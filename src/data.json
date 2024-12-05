@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "start_time": 0,
+    "end_time": 5000,
+    "dancer": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "position": {
+          "x": 23.45,
+          "y": 78.91
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "start_time": 10000,
+    "end_time": 15000,
+    "dancer": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "position": {
+          "x": 50.45,
+          "y": 60.91
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "start_time": 20000,
+    "end_time": 25000,
+    "dancer": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "position": {
+          "x": 123.45,
+          "y": 456.91
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "start_time": 30000,
+    "end_time": 35000,
+    "dancer": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "position": {
+          "x": 777.45,
+          "y": 888.91
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "start_time": 40000,
+    "end_time": 45000,
+    "dancer": [
+      {
+        "id": 1,
+        "name": "Alice",
+        "position": {
+          "x": 456.45,
+          "y": 123.91
+        }
+      }
+    ]
+  }
+]
