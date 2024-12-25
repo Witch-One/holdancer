@@ -26,6 +26,7 @@ struct Dancer {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Formation {
     id: i32,
+    bgm: String,
     start_time: i32,
     end_time: i32,
     dancer: Vec<Dancer>,
@@ -43,9 +44,7 @@ lazy_static::lazy_static! {
 
 pub fn load_data() -> Data {
     let path = Path::new("data/data.json");
-    print!("39 here");
     if !path.exists() {
-        print!("41 here");
         // 如果不存在，则创建文件及其父目录
         fs::create_dir_all(path.parent().unwrap()).expect("Failed to create parent directory"); // 创建父目录
         fs::File::create(&path).expect("Failed to create file"); // 创建文件
@@ -53,6 +52,7 @@ pub fn load_data() -> Data {
             count_id: 0,
             formation: vec![Formation {
                 id: 0,
+                bgm: "".to_string(),
                 start_time: 0,
                 end_time: 500,
                 dancer: vec![],
@@ -113,6 +113,7 @@ pub fn get_current_formation_by_timestamp(time: i32) -> Option<Formation> {
         return Some(Formation {
             id: prev.id, // 使用前一个 formation 的 ID
             start_time: prev.start_time,
+            bgm: prev.bgm,
             end_time: next.end_time,
             dancer: interpolated_dancers,
         });
@@ -159,6 +160,7 @@ pub fn update_formation(time: i32, new_formation: Formation) -> Result<()> {
                 last_formation..last_formation,
                 vec![Formation {
                     id: get_count_id(),
+                    bgm: new_formation.bgm.clone(),
                     start_time: time,
                     end_time: time + 500,
                     dancer: new_formation.dancer.clone(),
@@ -181,6 +183,7 @@ pub fn add_formation() -> Result<()> {
         Some(formation) => {
             let new_formation = Formation {
                 dancer: formation.dancer.clone(),
+                bgm: formation.bgm.clone(),
                 id: formation.id + 1,
                 start_time: formation.end_time,
                 end_time: formation.end_time + 500,
@@ -190,6 +193,7 @@ pub fn add_formation() -> Result<()> {
         None => {
             let new_formation = Formation {
                 dancer: vec![],
+                bgm: "".to_string(),
                 id: 0,
                 start_time: 0,
                 end_time: 500,
